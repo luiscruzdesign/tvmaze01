@@ -3,9 +3,15 @@
       <img :src="seriado.image['original']" alt="">
       <div class="series-info">
         <h1>{{seriado.name}} ({{seriado.rating['average']}})</h1>
-        <h3>Language: {{seriado.language}} | Episode number | Runtime: minutes</h3>
+        <h3>
+          <span v-for="genre in seriado.genres">{{ genre }}</span>
+        </h3>
+        <h5 v-if="seriado.status === 'Running'">
+          <span v-for="day in seriado.schedule.days">{{ day }}s at</span> <span>{{seriado.schedule.time}}</span> on <span>{{seriado.network.name}}</span>
+        </h5>
         <a class="oficial-site" :href="seriado.officialSite" target="_blank">Official site</a>
         <div class="seriado-summary" v-html="seriado.summary"></div>
+        <h4>Language: {{seriado.language}} | Premiered: {{seriado.premiered}} | Status: {{seriado.status}}</h4>
       </div>
       <h2>Episode list</h2>
       <div class="episode-listing">
@@ -71,6 +77,21 @@
     text-align: center;
     font-size: 12px;
   }
+  h3 span::after {
+    content: " | ";
+  }
+  h3 span:last-of-type::after {
+    content: none;
+  }
+  h4 {
+    font-size: 12px;
+    text-align: center;
+    margin: 0 0 35px;
+  }
+  h5 {
+    text-align: center;
+    margin: 5px 0 30px 0;
+  }
   .oficial-site {
     width: 300px;
     background: #40ac57;
@@ -82,7 +103,7 @@
     color: white;
   }
   .seriado-summary {
-    margin: 30px 0;
+    margin: 30px 0 0;
     font-family: "Times New Roman", Times, serif;
   }
   @media only screen and (min-width: 768px) {
