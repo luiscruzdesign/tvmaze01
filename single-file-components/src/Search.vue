@@ -32,9 +32,9 @@
     align-content: center;
     justify-content: center;
     position: absolute;
-    padding: 0 20px;
     top: 0;
     background: #000000;
+    width: 100%;
   }
   .center-input::after {
     content: "";
@@ -54,11 +54,12 @@
   .input-container {
     width: 100%;
     position: relative;
+    margin: 0 20px;
   }
   h1 {
     font-size: 20px;
     text-align: center;
-    margin: 0 0 15px;
+    margin: 0 20px 15px;
     color: #ffffff;
   }
   input {
@@ -86,7 +87,7 @@
     position: absolute;
     border-radius: 0 5px 5px 0;
     top: 0;
-    right: -4px;
+    right: -7px;
     height: 46px;
     color: #ffffff;
     width: 40px;
@@ -101,19 +102,30 @@
   }
   @media only screen and (min-width: 768px) {
     div {
-      width: 100%;
-      height: 150px;
+      height: 66px;
       padding: 0;
     }
     h1 {
       font-size: 40px;
       margin-bottom: 30px;
     }
-    input {
+    .input-container {
       width: 70%;
+      position: relative;
+    }
+    input[type="text"] {
       height: 60px;
       font-size: 24px;
       text-indent: 20px;
+    }
+    input[type="submit"] {
+      height: 66px;
+      width: 66px;
+      font-size: 24px;
+    }
+    a {
+      width: 100%;
+      text-align: center;
     }
   }
 </style>

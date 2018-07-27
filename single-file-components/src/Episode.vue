@@ -2,9 +2,11 @@
     <div>
         <!--<router-link :to="'/serie/episodes/8'">Listagem de episódios</router-link>-->
         <img :src="product.image['medium']" :alt="product.name">
-        <h1>{{product.name}}</h1>
-        <h3>Season: {{product.season}} | Episode number {{product.number}} | Runtime: {{product.runtime}} minutes</h3>
-        <div class="episodio-summary" v-html="product.summary"></div>
+        <div class="episode-details">
+          <h1>{{product.name}}</h1>
+          <h3>Season: {{product.season}} | Episode number {{product.number}} | Runtime: {{product.runtime}} minutes</h3>
+          <div class="episodio-summary" v-html="product.summary"></div>
+        </div>
     </div>
 </template>
 
@@ -40,5 +42,15 @@
     }
     .episodio-summary {
       font-family: "Times New Roman", Times, serif;
+    }
+    @media only screen and (min-width: 768px) {
+      img {
+        width: 50%;
+        float: left;
+      }
+      .episode-details {
+        width: 50%;
+        float: right;
+      }
     }
 </style>

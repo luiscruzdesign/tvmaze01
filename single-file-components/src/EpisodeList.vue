@@ -1,13 +1,17 @@
 <template>
     <div class="episode-list">
       <img :src="seriado.image['original']" alt="">
-      <h1>{{seriado.name}} ({{seriado.rating['average']}})</h1>
-      <h3>Language: {{seriado.language}} | Episode number | Runtime: minutes</h3>
-      <a class="oficial-site" :href="seriado.officialSite" target="_blank">Official site</a>
-      <div class="seriado-summary" v-html="seriado.summary"></div>
+      <div class="series-info">
+        <h1>{{seriado.name}} ({{seriado.rating['average']}})</h1>
+        <h3>Language: {{seriado.language}} | Episode number | Runtime: minutes</h3>
+        <a class="oficial-site" :href="seriado.officialSite" target="_blank">Official site</a>
+        <div class="seriado-summary" v-html="seriado.summary"></div>
+      </div>
       <h2>Episode list</h2>
-      <episode-list-item v-for="(episodio, i) in episodios" :episodio="episodio" :key="episodio.id">
-      </episode-list-item>
+      <div class="episode-listing">
+        <episode-list-item v-for="(episodio, i) in episodios" :episodio="episodio" :key="episodio.id">
+        </episode-list-item>
+      </div>
     </div>
 </template>
 
@@ -80,5 +84,24 @@
   .seriado-summary {
     margin: 30px 0;
     font-family: "Times New Roman", Times, serif;
+  }
+  @media only screen and (min-width: 768px) {
+    img {
+      width: 50%;
+      float: left;
+    }
+    .series-info {
+      float: right;
+      width: 50%;
+    }
+    .episode-listing {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      padding-bottom: 50px;
+    }
+    h2 {
+      clear: both;
+    }
   }
 </style>

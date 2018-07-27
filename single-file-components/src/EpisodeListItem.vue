@@ -54,4 +54,24 @@
   img {
     width: 100%;
   }
+  @media only screen and (min-width: 768px) {
+    article {
+      width: 50%;
+      position: relative;
+      padding: 50px 0;
+
+    }
+    article:nth-of-type(odd) {
+      background: white;
+    }
+    article:nth-of-type(even) {
+      border-top: none;
+    }
+    a {
+      position: absolute;
+      bottom: 0;
+      margin-left: -150px;
+      left: 50%;
+    }
+  }
 </style>
