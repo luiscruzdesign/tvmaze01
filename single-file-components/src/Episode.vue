@@ -4,7 +4,7 @@
         <img :src="product.image['medium']" :alt="product.name">
         <h1>{{product.name}}</h1>
         <h3>Season: {{product.season}} | Episode number {{product.number}} | Runtime: {{product.runtime}} minutes</h3>
-        <p>{{product.summary}}</p>
+        <div class="episodio-summary" v-html="product.summary"></div>
     </div>
 </template>
 
@@ -18,14 +18,27 @@
         },
         created() {
             let id = this.$route.params.id;
-            $.getJSON(`http://api.tvmaze.com/episodes/185053`)
+            $.getJSON(`http://api.tvmaze.com/episodes/${id}`)
                 .done(data => {this.product = data;})
         }
     };
 </script>
 
 <style scoped>
+    img {
+      width: 100%;
+    }
+    h1, h3 {
+      margin: 0;
+    }
     h1 {
-      color: #000000;
+      margin-top: 15px;
+    }
+    h3 {
+      text-align: center;
+      font-size: 12px;
+    }
+    .episodio-summary {
+      font-family: "Times New Roman", Times, serif;
     }
 </style>

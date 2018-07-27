@@ -32,10 +32,10 @@ const routes = [
     path: '/serie/:id',
     component: EpisodeList
   },
-  {
+  /*{
     path: '/serie/episodes/:id',
     component: EpisodeList
-  },
+  },*/
   {
     path: '/episode/:id',
     component: Episode

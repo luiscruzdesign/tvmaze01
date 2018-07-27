@@ -1,9 +1,8 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #000000;
-  background: #ffffff;
 }
+/*
 body::after {
   content: none;
   background: url('../images/background.jpg') no-repeat;
@@ -16,7 +15,7 @@ body::after {
   right: 0;
   position: absolute;
   z-index: -1;
-}
+}*/
 header {
   background-color: #000000;
   background: #000000;
@@ -28,7 +27,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  display: none;
 }
 header img {
   display: block;
@@ -36,10 +34,20 @@ header img {
   width: 100px;
 }
 #vue-container {
-  margin: 10px;
   overflow: hidden;
-  margin-top: 72px;
+  margin: 72px 0 0 0;
 }
+h1, h2, h3, p {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+/*
 a {
   color: #ffffff;
   display: block;
@@ -52,14 +60,14 @@ a {
   font-weight: bold;
   font-size: 24px;
   border-radius: 5px;
-}
+}*/
 /* Responsivo */
-@media only screen and (min-width: 768px) {
+/*@media only screen and (min-width: 768px) {
   header {
     padding: 30px 0;
   }
   header img {
     width: 30%;
     margin: 0 auto;
-  }
+  }*/
 }
