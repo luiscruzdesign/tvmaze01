@@ -6,6 +6,7 @@
           <h1>{{product.name}}</h1>
           <h3>Season: {{product.season}} | Episode number {{product.number}} | Runtime: {{product.runtime}} minutes</h3>
           <div class="episodio-summary" v-html="product.summary"></div>
+          <button v-on:click="goBack()">Go Back</button>
         </div>
     </div>
 </template>
@@ -13,6 +14,11 @@
 <script>
     export default {
         name: 'episode',
+        methods: {
+          goBack: function() {
+            window.history.back();
+          }
+        },
         data() {
             return {
                 product: {}
