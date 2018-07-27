@@ -2,7 +2,7 @@
     <div>
       <h1>Search for your next serie</h1>
       <input type="text" name="" value="" placeholder="Start typing the serie name">
-      <router-link :to="'/serie/8'">Detalhe de série</router-link>
+      <router-link :to="'/serie/169'">Detalhe de série</router-link>
     </div>
 </template>
 
