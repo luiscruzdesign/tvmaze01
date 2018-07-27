@@ -2,11 +2,13 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background: #000000;
+  background: #ffffff;
 }
 body::after {
-  content: "";
+  content: none;
   background: url('../images/background.jpg') no-repeat;
   background-position-x: center;
+  background-size: auto 100%;
   opacity: 0.3;
   top: 0;
   left: 0;
@@ -26,6 +28,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  display: none;
 }
 header img {
   display: block;
@@ -36,4 +39,27 @@ header img {
   margin: 10px;
   overflow: hidden;
   margin-top: 72px;
+}
+a {
+  color: #ffffff;
+  display: block;
+  background: green;
+  width: 35%;
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 5px;
+}
+/* Responsivo */
+@media only screen and (min-width: 768px) {
+  header {
+    padding: 30px 0;
+  }
+  header img {
+    width: 30%;
+    margin: 0 auto;
+  }
 }

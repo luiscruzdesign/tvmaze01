@@ -12,8 +12,13 @@ export default {
     };
   },
   created: function() {
-      $.getJSON('https://hplussport.com/api/products')
-          .done(data => {this.theProducts = data;});
+
+      $.getJSON('http://api.tvmaze.com/shows/1/episodes')
+          .done(
+            data => {this.theProducts = data;}
+          );
+
+
   }
 }
 </script>

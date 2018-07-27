@@ -2,6 +2,7 @@
     <div>
       <h1>Search for your next serie</h1>
       <input type="text" name="" value="" placeholder="Start typing the serie name">
+      <router-link :to="'/serie/8'">Detalhe de série</router-link>
     </div>
 </template>
 
@@ -9,14 +10,13 @@
     export default {
         name: 'search',
         data() {
-            return {
-                product: {}
-            }
+          return {
+            theProducts: []
+          };
         },
-        created() {
-            let id = this.$route.params.id;
-            $.getJSON(`https://hplussport.com/api/products/id/${id}`)
-                .done(data => {this.product = data;})
+        created: function() {
+            //$.getJSON('https://hplussport.com/api/products')
+                //.done(data => {this.theProducts = data;});
         }
     };
 </script>
@@ -55,5 +55,22 @@
   input:focus {
     outline: none;
     border: 2px solid #6ed86e;
+  }
+  @media only screen and (min-width: 768px) {
+    div {
+      width: 100%;
+      height: 150px;
+      padding: 0;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    input {
+      width: 70%;
+      height: 60px;
+      font-size: 24px;
+      text-indent: 20px;
+    }
   }
 </style>

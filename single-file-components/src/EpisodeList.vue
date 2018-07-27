@@ -1,35 +1,44 @@
 <template>
-    <div class="product-list">
-        <h2>{{title}}</h2>
-        <ul>
-            <product-list-item @remove="remove(i)" v-for="(product, i) in products" :product="product" :key="product.id">
-            </product-list-item>
-        </ul>
+    <div class="episode-list">
+      <!--<pre>{{products}}</pre>-->
+      <img :src="seriado.image['original']" alt="">
+      <h1>{{seriado.name}} ({{seriado.rating['average']}})</h1>
+      <h3>Language: {{seriado.language}} | Episode number | Runtime: minutes</h3>
+      <a :href="seriado.officialSite" target="_blank">Official site</a>
+      <p>{{seriado.summary}}</p>
+      <hr>
+      <h2>Episode list</h2>
+      <episode-list-item v-for="(product, i) in products" :product="product" :key="product.id">
+      </episode-list-item>
     </div>
 </template>
 
 <script>
-    import ProductListItem from './ProductListItem.vue';
+    import EpisodeListItem from './EpisodeListItem.vue';
 
     export default {
-        name: 'product-list',
+        name: 'episode-list',
         props: ['products', 'title'],
         components: {
-            'product-list-item': ProductListItem
+            'episode-list-item': EpisodeListItem
         },
         methods: {
-            remove(i) {
-                this.products.splice(i, 1);
+        },
+        data() {
+            return {
+                seriado: {}
             }
+        },
+        created() {
+            let id = this.$route.params.id;
+            $.getJSON(`http://api.tvmaze.com/shows/1`)
+                .done(data => {this.seriado = data;})
         }
     };
 </script>
 
 <style scoped>
-    h2 {
-        margin-bottom: 40px;
-    }
-    ul {
-        list-style-type: none;
-    }
-</style>    
+  img {
+    width: 100%;
+  }
+</style>

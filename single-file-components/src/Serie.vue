@@ -1,36 +1,31 @@
 <template>
     <div>
-        <h2><strong>{{product.name}}</strong></h2>
-        <router-link to="/products">Back to all products</router-link>
-        <img :src="product.image">
-        <p>{{product.description}}</p>
-        <strong>{{product.price}}</strong>
-        <div>
-            <button>Add to Cart</button>
-        </div>
+        <router-link :to="'/serie/episodes/8'">Listagem de episódios</router-link>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'product',
+        name: 'serie',
         data() {
             return {
                 product: {}
             }
         },
         created() {
-            let id = this.$route.params.id;
+            /*let id = this.$route.params.id;
             $.getJSON(`https://hplussport.com/api/products/id/${id}`)
-                .done(data => {this.product = data;})
+                .done(data => {this.product = data;})*/
         }
     };
 </script>
 
 <style scoped>
+    h1 {
+      color: #ffffff;
+    }
     img {
         width: 700px;
         height: 700px;
     }
-</style>     
-
+</style>
