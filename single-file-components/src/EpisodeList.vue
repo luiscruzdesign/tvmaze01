@@ -18,24 +18,32 @@
         <episode-list-item v-for="(episodio, i) in episodios" :episodio="episodio" :key="episodio.id">
         </episode-list-item>
       </div>
+      <h2>Cast</h2>
+      <div class="cast-listing">
+        <cast-list-item v-for="(ator, i) in elenco" :elenco="elenco" :key="ator.id">
+        </cast-list-item>
+      </div>
     </div>
 </template>
 
 <script>
     import EpisodeListItem from './EpisodeListItem.vue';
+    import CastListItem from './CastListItem.vue';
 
     export default {
         name: 'episode-list',
         props: ['products', 'title'],
         components: {
-            'episode-list-item': EpisodeListItem
+            'episode-list-item': EpisodeListItem,
+            'cast-list-item': CastListItem
         },
         methods: {
         },
         data() {
             return {
                 seriado: {},
-                episodios: {}
+                episodios: {},
+                elenco: {}
             }
         },
         created() {
@@ -45,11 +53,16 @@
             episodesQuery += id
             episodesQuery += '/episodes'
 
+            let castQuery = 'http://api.tvmaze.com/shows/'
+            castQuery += id
+            castQuery += '/cast'
+
             $.getJSON(`http://api.tvmaze.com/shows/${id}`)
                 .done(data => {this.seriado = data;})
             $.getJSON(episodesQuery)
-                .done(
-                  data => {this.episodios = data;})
+                .done(data => {this.episodios = data;})
+            $.getJSON(castQuery)
+                .done(data => {this.elenco = data;})
         }
     };
 </script>
