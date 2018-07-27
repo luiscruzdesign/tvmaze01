@@ -1,7 +1,10 @@
 <template>
-    <div>
+    <div class="center-input">
       <h1>Search for your next serie</h1>
-      <input type="text" name="" value="" placeholder="Start typing the serie name">
+      <div class="input-container">
+        <input type="text" name="" value="" placeholder="Start typing the serie name">
+        <input type="submit" name="" value=">">
+      </div>
       <router-link :to="'/serie/169'">Detalhe de série</router-link>
     </div>
 </template>
@@ -22,7 +25,7 @@
 </script>
 
 <style scoped>
-  div {
+  .center-input {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +36,7 @@
     top: 0;
     background: #000000;
   }
-  div::after {
+  .center-input::after {
     content: "";
     background: #000000 url('../images/background.jpg') no-repeat;
     background-position-x: center;
@@ -45,8 +48,12 @@
     right: 0;
     position: absolute;
   }
-  *:not(div) {
+  *:not(.center-input) {
     z-index: 1;
+  }
+  .input-container {
+    width: 100%;
+    position: relative;
   }
   h1 {
     font-size: 20px;
@@ -56,19 +63,37 @@
   }
   input {
     height: 40px;
-    width: 100%;
+    border-radius: 5px;
     border: 2px solid transparent;
+  }
+  input:focus {
+    outline: none;
+  }
+  input[type="text"] {
+    width: 100%;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
     margin: 0;
-    border-radius: 5px;
     text-indent: 10px;
     font-size: 12px;
   }
-  input:focus {
-    outline: none;
+  input[type="text"]:focus {
     border: 2px solid #6ed86e;
+  }
+  input[type="submit"] {
+    background: green;
+    position: absolute;
+    border-radius: 0 5px 5px 0;
+    top: 0;
+    right: -4px;
+    height: 46px;
+    color: #ffffff;
+    width: 40px;
+    font-weight: bold;
+  }
+  input[type="submit"]:active {
+    background: #0c9c0c;
   }
   a {
     color: white;
