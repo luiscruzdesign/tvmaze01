@@ -23,16 +23,30 @@
 
 <style scoped>
   div {
-    height: 150px;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     position: absolute;
-    top: 50%;
-    margin-top: -40px;
     padding: 0 20px;
+    top: 0;
+    background: #000000;
+  }
+  div::after {
+    content: "";
+    background: #000000 url('../images/background.jpg') no-repeat;
+    background-position-x: center;
+    background-size: auto 100%;
+    opacity: 0.3;
+    top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+  *:not(div) {
+    z-index: 1;
   }
   h1 {
     font-size: 20px;
@@ -55,6 +69,10 @@
   input:focus {
     outline: none;
     border: 2px solid #6ed86e;
+  }
+  a {
+    color: white;
+    margin-top: 30px;
   }
   @media only screen and (min-width: 768px) {
     div {
